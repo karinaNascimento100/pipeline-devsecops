@@ -10,6 +10,12 @@ Este repositório contém o relatório e o diagrama do Pipeline DevSecOps propos
 - **[.github/workflows/ci.yml](.github/workflows/ci.yml)** — workflow GitHub Actions para geração automática de artefatos e execução de scans
 
 
+## 📽️ Apresentação
+
+- **[ApresentacaoDevSecOps.pptx](ApresentacaoDevSecOps.pptx)** — apresentação do projeto (arquivo PPTX)
+- **Visualizar no GitHub:** https://github.com/karinaNascimento100/pipeline-devsecops/blob/main/ApresentacaoDevSecOps.pptx
+
+
 Como usar localmente (exemplos):
 
 - Exportar o diagrama Draw.io para PNG (usa drawio CLI via npx):
