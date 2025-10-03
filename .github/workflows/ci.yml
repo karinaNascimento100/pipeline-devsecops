@@ -11,10 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Instalar LibreOffice
-        run: sudo apt-get update && sudo apt-get install -y libreoffice
-      - name: Exportar PDF
-        run: libreoffice --headless --convert-to pdf docs/RelatorioFluxoDevSecOps.odt --outdir docs || true
+      # LibreOffice conversion removed — report PDF is stored in the repo
 
       - name: Setup Node
         uses: actions/setup-node@v4

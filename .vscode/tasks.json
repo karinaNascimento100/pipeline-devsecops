@@ -2,14 +2,9 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Exportar PDF",
-      "type": "shell",
-      "command": "libreoffice --headless --convert-to pdf docs/relatorio.odt --outdir docs"
-    },
-    {
       "label": "Exportar Diagrama",
       "type": "shell",
-      "command": "npx -y @drawio/cli@^2.6.0 -x -f png -o docs/pipeline.png docs/pipeline.drawio"
+      "command": "npx -y @drawio/cli@^2.6.0 -x -f png -o FluxoSeguroPipeline.drawio.png FluxoSeguroPipeline.drawio"
     },
     {
       "label": "Gitleaks Scan",
