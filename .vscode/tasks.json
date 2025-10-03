@@ -1,0 +1,25 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Exportar PDF",
+      "type": "shell",
+      "command": "libreoffice --headless --convert-to pdf docs/relatorio.odt --outdir docs"
+    },
+    {
+      "label": "Exportar Diagrama",
+      "type": "shell",
+      "command": "npx -y @drawio/cli@^2.6.0 -x -f png -o docs/pipeline.png docs/pipeline.drawio"
+    },
+    {
+      "label": "Gitleaks Scan",
+      "type": "shell",
+      "command": "docker run --rm -v ${workspaceFolder}:/repo ghcr.io/gitleaks/gitleaks:latest detect -s /repo -v"
+    },
+    {
+      "label": "Trivy FS Scan",
+      "type": "shell",
+      "command": "docker run --rm -v ${workspaceFolder}:/project aquasec/trivy fs --exit-code 0 --format table /project"
+    }
+  ]
+}
