@@ -1,0 +1,8 @@
+title = "gitleaks config"
+
+[allowlist]
+description = "false positives comuns"
+regexes = [
+  '''(?i)example|senha|password123|changeme|secret123''',
+]
+paths = ["README.md", ".gitignore"]

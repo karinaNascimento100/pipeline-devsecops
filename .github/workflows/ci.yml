@@ -1,23 +1,54 @@
-name: CI
+name: devsecops-pipeline
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ main, master ]
 
 jobs:
-  build:
+  prepare:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Set up Node.js
+
+      - name: Instalar LibreOffice
+        run: sudo apt-get update && sudo apt-get install -y libreoffice
+      - name: Exportar PDF
+        run: libreoffice --headless --convert-to pdf docs/RelatorioFluxoDevSecOps.odt --outdir docs || true
+
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
-      - name: Install dependencies
-        run: |
-          if [ -f package.json ]; then npm ci; fi
-      - name: Run tests
-        run: |
-          if [ -f package.json ] && npm test --silent; then echo "Tests finished"; fi
+          node-version: '20'
+      - name: Exportar diagrama (drawio -> PNG)
+        run: npx -y @drawio/cli@^2.6.0 -x -f png -o docs/FluxoSeguroPipeline.drawio.png FluxoSeguroPipeline.drawio || true
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: docs-renderizados
+          path: |
+            docs/RelatorioFluxoDevSecOps.pdf
+            docs/FluxoSeguroPipeline.drawio.png
+
+  gitleaks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Gitleaks Scan
+        uses: zricethezav/gitleaks-action@v2
+        with:
+          config-path: security/.gitleaks.toml
+        continue-on-error: true
+
+  trivy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Trivy FS Scan
+        uses: aquasecurity/trivy-action@0.20.0
+        with:
+          scan-type: fs
+          ignore-unfixed: true
+          format: table
+          exit-code: 0
