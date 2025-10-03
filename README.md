@@ -7,6 +7,12 @@ Conteúdo principal:
 - `RelatorioFluxoDevSecOps.pdf` — versão PDF para entrega
 - `FluxoSeguroPipeline.drawio` / `FluxoSeguroPipeline.drawio.png` — diagrama do fluxo
 - `.github/workflows/ci.yml` — workflow de CI para gerar PDF/PNG e rodar scans
+## 📂 Conteúdo Principal
+
+- **[RelatorioFluxoDevSecOps.odt](docs/RelatorioFluxoDevSecOps.odt)** — relatório editável (formato ODT)  
+- **[RelatorioFluxoDevSecOps.pdf](docs/RelatorioFluxoDevSecOps.pdf)** — versão final em PDF para entrega  
+- **[FluxoSeguroPipeline.drawio](docs/FluxoSeguroPipeline.drawio)** / **[PNG](docs/FluxoSeguroPipeline.drawio.png)** — diagrama do fluxo em formato editável e imagem  
+- **[.github/workflows/ci.yml](.github/workflows/ci.yml)** — workflow GitHub Actions para geração automática de artefatos e execução de scans  
 
 Como usar localmente (exemplos):
 
