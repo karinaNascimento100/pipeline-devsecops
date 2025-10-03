@@ -12,8 +12,7 @@ Este repositório contém o relatório e o diagrama do Pipeline DevSecOps propos
 
 ## 📽️ Apresentação
 
-- **[ApresentacaoDevSecOps.pptx](ApresentacaoDevSecOps.pptx)** — apresentação do projeto (arquivo PPTX)
-- **Visualizar no GitHub:** https://github.com/karinaNascimento100/pipeline-devsecops/blob/main/ApresentacaoDevSecOps.pptx
+- **Apresentação (download):** https://github.com/karinaNascimento100/pipeline-devsecops/blob/main/ApresentacaoDevSecOps.pptx
 
 
 Como usar localmente (exemplos):
